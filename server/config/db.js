@@ -56,6 +56,7 @@ async function startEmbeddedMongo() {
         dbPath,
         storageEngine: 'wiredTiger',
         port,
+        args: ['--wiredTigerCacheSizeGB', '0.25'],
       },
     });
     return memoryServer.getUri();

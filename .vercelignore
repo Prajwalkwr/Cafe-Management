@@ -1,0 +1,7 @@
+render.yaml
+server
+node_modules
+dist
+.env
+.env.*
+.motion-check

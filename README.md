@@ -4,6 +4,11 @@ Where Every Taste Feels Like Home.
 
 A premium website for Mithaas Café, a Nepali café in Kathmandu. Guests can browse the menu, view signature dishes and the gallery, read guest notes, and reserve a table. Staff manage reservations, the menu, and gallery photos from a protected admin dashboard.
 
+**Live site:** [mithaas-cafe.vercel.app](https://mithaas-cafe.vercel.app)
+**API:** `https://mithaas-cafe-api.onrender.com` (health check at `/api/health`)
+
+[![Deploy API to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/Prajwalkwr/Cafe-Management)
+
 ## Features
 
 - Cinematic loading screen, hero reveal, scroll reveals, and a custom Mithaas logo cursor on desktop
@@ -74,15 +79,15 @@ Quote values that contain `#`, for example `ADMIN_PASSWORD="Mithaas#2026"`. Dote
 
 ### 2. API on Render
 
-1. In [Render](https://dashboard.render.com), choose **New → Blueprint** and select this repository. Render reads `render.yaml`.
-2. Fill in `MONGODB_URI` and `ADMIN_PASSWORD` when asked. `JWT_SECRET` is generated for you.
+1. Click the **Deploy to Render** button above, or in [Render](https://dashboard.render.com) choose **New → Blueprint** and select this repository. Render reads `render.yaml`.
+2. Fill in `MONGODB_URI` and `ADMIN_PASSWORD` when asked. `JWT_SECRET` is generated for you. If `MONGODB_URI` is left empty the API starts its own temporary MongoDB, which works but loses data whenever Render restarts the service.
 3. After the deploy, open `https://<your-service>.onrender.com/api/health`. It should return `{"ok":true,"database":"connected"}`.
 
 The free plan sleeps after inactivity, so the first request after a while can take up to a minute.
 
 ### 3. Website on Vercel
 
-1. In [Vercel](https://vercel.com/new), import this repository. The Vite settings come from `vercel.json`.
+1. In [Vercel](https://vercel.com/new), import this repository. The Vite settings come from `vercel.json`, and `.vercelignore` keeps the server code and `render.yaml` out of the frontend upload.
 2. Add the environment variable `VITE_API_URL` with your Render URL (no trailing slash).
 3. Deploy. If your Vercel address does not start with `mithaas-cafe` or `cafe-management`, add it to `CLIENT_ORIGIN` on Render.
 
