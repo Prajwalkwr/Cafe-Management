@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A warm Kathmandu café serving handcrafted coffee and Nepali-inspired food." />
+    <meta name="theme-color" content="#1f3b33" />
+    <meta property="og:title" content="Mithaas Café | Kathmandu" />
+    <meta property="og:description" content="A warm Kathmandu café serving handcrafted coffee and Nepali-inspired food." />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_NP" />
+    <meta property="og:image" content="/og.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <title>Mithaas Café | Kathmandu</title>
+  </head>
+  <body>
+    <div id="boot-loader" style="position:fixed;inset:0;z-index:200;display:grid;place-items:center;background:#f6f1e8;color:#1b1613">
+      <div style="text-align:center;font-family:Georgia,serif">
+        <p style="margin:0;letter-spacing:0.28em;font-size:0.8rem">MITHAAS CAFÉ</p>
+        <p style="margin:0.8rem 0 0;font-family:'Segoe UI',sans-serif;font-size:0.82rem;letter-spacing:0.14em;text-transform:uppercase;color:#6e655d">Preparing something special…</p>
+      </div>
+    </div>
+    <div id="root"></div>
+    <script>
+      setTimeout(function () {
+        var boot = document.getElementById('boot-loader');
+        if (boot) boot.remove();
+      }, 2500);
+    </script>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

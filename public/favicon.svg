@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Mithaas Café">
+  <rect width="64" height="64" rx="14" fill="#1f3b33"/>
+  <path d="M12 46 L24 28 L32 38 L42 22 L52 46" fill="none" stroke="#f6f1e8" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M32 14c2 4 2 7 0 10-2-3-2-6 0-10Z" fill="#f6f1e8"/>
+</svg>
