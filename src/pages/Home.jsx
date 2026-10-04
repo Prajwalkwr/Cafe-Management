@@ -1,6 +1,7 @@
 import { useHashScroll } from '../hooks/useUi.js';
 import { useAsync } from '../hooks/useAsync.js';
 import { fetchGallery, fetchMenu, fetchTestimonials } from '../services/api.js';
+import menuSnapshot from '../data/menuSnapshot.json';
 import ContactSection from '../components/ContactSection.jsx';
 import Gallery from '../components/Gallery.jsx';
 import Hero from '../components/Hero.jsx';
@@ -12,7 +13,7 @@ import Testimonials from '../components/Testimonials.jsx';
 
 export default function Home() {
   useHashScroll();
-  const menu = useAsync(fetchMenu);
+  const menu = useAsync(fetchMenu, menuSnapshot);
   const gallery = useAsync(fetchGallery);
   const quotes = useAsync(fetchTestimonials);
 

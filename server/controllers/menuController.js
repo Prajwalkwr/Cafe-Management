@@ -38,6 +38,7 @@ export async function listMenu(req, res, next) {
       filter.category = req.query.category;
     }
     const items = await MenuItem.find(filter).sort({ category: 1, name: 1 });
+    res.set('Cache-Control', 'public, max-age=60, stale-while-revalidate=86400');
     return res.json({ items: items.map(present) });
   } catch (error) {
     return next(error);

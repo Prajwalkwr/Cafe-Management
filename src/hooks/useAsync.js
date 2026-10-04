@@ -1,18 +1,20 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
-export function useAsync(loader) {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
+export function useAsync(loader, initialData = null) {
+  const hasData = useRef(initialData != null);
+  const [data, setData] = useState(initialData);
+  const [loading, setLoading] = useState(initialData == null);
   const [error, setError] = useState('');
 
   const reload = useCallback(async () => {
-    setLoading(true);
+    if (!hasData.current) setLoading(true);
     setError('');
     try {
-      setData(await loader());
+      const next = await loader();
+      hasData.current = next != null;
+      setData(next);
     } catch (err) {
-      setData(null);
-      setError(err.message || 'Something went wrong.');
+      if (!hasData.current) setError(err.message || 'Something went wrong.');
     } finally {
       setLoading(false);
     }
